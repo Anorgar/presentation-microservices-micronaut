@@ -4,6 +4,7 @@ import fr.micronaut.presentation.petcore.domains.dtos.PetDTO;
 import fr.micronaut.presentation.petcore.services.PetService;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
+import io.micronaut.http.annotation.PathVariable;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -15,7 +16,12 @@ public class PetController {
 
   @Get
   public List<PetDTO> retrievePets(){
-    return service.gretrievePets();
+    return service.retrievePets();
+  }
+
+  @Get("/{name}")
+  public PetDTO findPetByName(@PathVariable("name") String name){
+    return service.findByName(name);
   }
 
 }

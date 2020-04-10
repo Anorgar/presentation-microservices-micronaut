@@ -16,11 +16,18 @@ public class PetService {
   @Inject
   private PetRepository repository;
 
-  public List<PetDTO> gretrievePets(){
+  public List<PetDTO> retrievePets(){
     return Try.of(() -> repository.findAll())
         .map(pets -> IteratorUtils.toList(pets.iterator()))
         .map(PetMapper::mapEntitiesToDTOs)
-        .getOrElseThrow(e -> new ApiException("Unable to retrive pets", 500));
+        .getOrElseThrow(e -> new ApiException("Unable to retrieve pets", 500));
+  }
+
+  public PetDTO findByName(String name){
+    return Try.of(() -> repository.findByName(name)
+        .map(PetMapper::mapEntityToDTO)
+        .orElseThrow(() -> new ApiException("Pet " + name + " not found", 404)))
+        .getOrElseThrow(e -> new ApiException(e, "Unable to retrieve pet " + name, 500));
   }
 
 }

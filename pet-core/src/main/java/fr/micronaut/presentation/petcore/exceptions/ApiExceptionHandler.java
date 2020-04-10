@@ -15,7 +15,7 @@ public class ApiExceptionHandler implements ExceptionHandler<ApiException, HttpR
   @Override
   public HttpResponse<ApiError> handle(HttpRequest request, ApiException exception) {
     MutableHttpResponse<ApiError> response = HttpResponse.status(HttpStatus.valueOf(exception.getStatus()));
-    response.body(ApiError.builder().message(exception.getMessage())
+    response.body(ApiError.builder().status(exception.getStatus()).message(exception.getErrorMessage())
         .build());
     return response;
   }
