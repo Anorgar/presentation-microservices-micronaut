@@ -1,29 +1,11 @@
 buildscript {
-
     repositories {
-        maven { 
-            url "$nexusUrl/public/" 
-            credentials {
-                username = "$nexusUsername"
-                password = "$nexusPassword"
-            }
-        }
-        maven { 
-            url "$nexusUrl/thirdparty/" 
-            credentials {
-                username = "$nexusUsername"
-                password = "$nexusPassword"
-            }
-        }
+        mavenCentral()
     }
+
     dependencies {
         classpath group: 'org.springframework.boot', name: 'spring-boot-gradle-plugin', version: '2.0.3.RELEASE'
-        classpath group: 'forge.plugins', name: 'microservices', version: '(2.0,)'
     }
-}
-
-plugins {
-    id "org.sonarqube" version "2.6.2"
 }
 
 apply plugin: 'java'
@@ -37,23 +19,10 @@ dependencyManagement {
     }
 }
 
-apply from: "artifact.gradle"
-ext {
-    //Set your Nexus repository : default `snapshots`
-    nexusRepository = "$nexusUrl/snapshots/"
-}
 
 repositories {
-    maven { 
-        url "$nexusUrl/thirdparty/" 
-        credentials {
-            username = "$nexusUsername"
-            password = "$nexusPassword"
-        }
-    }
+    mavenCentral()
 }
-
-apply plugin: "forge.plugins.microservices"
 
 wrapper {
     distributionType = Wrapper.DistributionType.BIN
@@ -64,9 +33,7 @@ test {
     testLogging.showStandardStreams = false
 }
 
-apply plugin: "forge.plugins.microservices"
 
 dependencies {
-
     implementation('org.springframework.cloud:spring-cloud-config-server')
 }

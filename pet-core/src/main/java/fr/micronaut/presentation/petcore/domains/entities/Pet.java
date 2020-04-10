@@ -1,4 +1,4 @@
-package microservices.demo.petcore.domains.entities;
+package fr.micronaut.presentation.petcore.domains.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

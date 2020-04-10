@@ -1,11 +1,11 @@
-package microservices.demo.petcore.controllers;
+package fr.micronaut.presentation.petcore.controllers;
 
+import fr.micronaut.presentation.petcore.domains.dtos.PetDTO;
+import fr.micronaut.presentation.petcore.services.PetService;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import java.util.List;
 import javax.inject.Inject;
-import microservices.demo.petcore.domains.dtos.PetDTO;
-import microservices.demo.petcore.services.PetService;
 
 @Controller("/pet")
 public class PetController {

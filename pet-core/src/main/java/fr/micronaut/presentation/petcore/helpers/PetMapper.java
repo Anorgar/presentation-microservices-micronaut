@@ -1,9 +1,9 @@
-package microservices.demo.petcore.helpers;
+package fr.micronaut.presentation.petcore.helpers;
 
+import fr.micronaut.presentation.petcore.domains.dtos.PetDTO;
+import fr.micronaut.presentation.petcore.domains.entities.Pet;
 import java.util.List;
 import java.util.stream.Collectors;
-import microservices.demo.petcore.domains.dtos.PetDTO;
-import microservices.demo.petcore.domains.entities.Pet;
 
 public final class PetMapper {
 

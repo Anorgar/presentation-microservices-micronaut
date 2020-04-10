@@ -1,4 +1,4 @@
-package microservices.demo.petcore.exceptions;
+package fr.micronaut.presentation.petcore.exceptions;
 
 import io.micronaut.http.HttpRequest;
 import io.micronaut.http.HttpResponse;

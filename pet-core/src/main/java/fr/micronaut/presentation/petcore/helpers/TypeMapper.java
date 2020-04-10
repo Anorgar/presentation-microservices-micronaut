@@ -1,9 +1,9 @@
-package microservices.demo.petcore.helpers;
+package fr.micronaut.presentation.petcore.helpers;
 
+import fr.micronaut.presentation.petcore.domains.dtos.TypeDTO;
+import fr.micronaut.presentation.petcore.domains.entities.Type;
 import java.util.List;
 import java.util.stream.Collectors;
-import microservices.demo.petcore.domains.dtos.TypeDTO;
-import microservices.demo.petcore.domains.entities.Type;
 
 public final class TypeMapper {
 

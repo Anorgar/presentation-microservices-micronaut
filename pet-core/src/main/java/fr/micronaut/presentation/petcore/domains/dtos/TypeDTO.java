@@ -1,4 +1,4 @@
-package microservices.demo.petcore.domains.dtos;
+package fr.micronaut.presentation.petcore.domains.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
