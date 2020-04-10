@@ -1,0 +1,24 @@
+version = "1.8.0"
+group = "applications.microservices.support"
+description = "Service de configuration externalisée pour les µService"
+
+ext {
+  meta = [
+      gitRepo: 'https://gitlab.cultura.intra/microservices/core/config.git'
+  ]
+
+  deploy = [
+          repository : 'cultura.azurecr.io/config',
+          labels : [
+          ]
+  ]
+
+  image = "microservices:1.1.5"
+  size = "medium"
+   custom_ports = ["8000:8000"]
+  //custom_ports = ["XXXX:XXXX"]
+  //custom_volumes = ["my_volume1", "my_volume2"]
+  //custom_network = "myNetwork" //default : microservices
+  //stackname = "rcu"
+  //size = "small" // default: small, available : small, medium, large
+}

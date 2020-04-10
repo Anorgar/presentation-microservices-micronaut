@@ -1,0 +1,45 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitlab.cultura.intra/microservices/configuration/_configuration.git
+          default-label: cloud
+          cloneOnStart: true
+          username: docker-machine
+          password: G3kB2hDuarID
+
+health:
+  config:
+    enabled: false
+
+info:
+  name: ${spring.application.name}
+  version: ${version}
+  profile: ${spring.profiles.active}
+
+management:
+  security:
+    enabled: false
+
+encrypt:
+  key: _5ghxLUG0JVNi_aWtrM2lRU1Op_
+
+
+---
+
+spring:
+  profiles: prod
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitlab.cultura.intra/microservices/configuration/_configuration_prod.git
+
+encrypt:
+  key: _KF3ZDuJw4ZSw_48ixjQmjWv4c_
