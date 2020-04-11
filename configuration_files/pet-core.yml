@@ -1,9 +1,9 @@
 datasources:
   default:
-    url: ${database.h2.url}${database.h2.pet};INIT=runscript from 'classpath:/pet_store_init_script.sql'
-    username: ${database.h2.user-name}
-    password: ${database.h2.password}
-    driverClassName: ${database.h2.driver}
+    url: ${databases.h2.url}${databases.h2.pet};INIT=runscript from 'classpath:/pet_store_init_script.sql'
+    username: ${databases.h2.user-name}
+    password: ${databases.h2.password}
+    driverClassName: ${databases.h2.driver}
 
 jpa:
   default:
