@@ -1,4 +1,3 @@
-
 plugins {
     id "com.github.johnrengelman.shadow" version "4.0.2"
     id "io.spring.dependency-management" version "1.0.6.RELEASE"
@@ -26,16 +25,14 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok:1.18.8")
     annotationProcessor("io.micronaut:micronaut-inject-java")
     annotationProcessor("io.micronaut:micronaut-validation")
-    annotationProcessor("io.micronaut.data:micronaut-data-processor")
+    annotationProcessor("io.micronaut.configuration:micronaut-openapi")
 
 
     compile project(":common")
 
-    compile("io.micronaut.data:micronaut-data-hibernate-jpa")
-    implementation("com.h2database:h2")
-    runtimeOnly("io.micronaut.configuration:micronaut-jdbc-hikari")
-
+    compile("io.micronaut:micronaut-views")
     compileOnly('org.projectlombok:lombok:1.18.8')
+    runtime 'org.thymeleaf:thymeleaf:3.0.11.RELEASE'
     runtime("ch.qos.logback:logback-classic:1.2.3")
 
     testAnnotationProcessor("io.micronaut:micronaut-inject-java")
@@ -50,7 +47,7 @@ dependencies {
     testAnnotationProcessor("org.projectlombok:lombok:1.18.8")
 }
 
-mainClassName = "fr.micronaut.presentation.petcore.Application"
+mainClassName = "fr.micronaut.presentation.petapi.Application"
 // use JUnit 5 platform
 test {
     useJUnitPlatform()
@@ -58,6 +55,8 @@ test {
 tasks.withType(JavaCompile){
     options.encoding = "UTF-8"
     options.compilerArgs.add('-parameters')
+    options.fork = true
+    options.forkOptions.jvmArgs << '-Dmicronaut.openapi.views.spec=swagger-ui.enabled=true,swagger-ui.theme=flattop'
 }
 
 shadowJar {

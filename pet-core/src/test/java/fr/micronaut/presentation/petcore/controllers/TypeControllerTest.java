@@ -3,8 +3,7 @@ package fr.micronaut.presentation.petcore.controllers;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-import fr.micronaut.presentation.petcore.domains.dtos.PetDTO;
-import fr.micronaut.presentation.petcore.domains.dtos.TypeDTO;
+import fr.micronaut.presentation.common.domains.Type;
 import io.micronaut.http.HttpStatus;
 import io.micronaut.runtime.server.EmbeddedServer;
 import io.micronaut.test.annotation.MicronautTest;
@@ -36,18 +35,10 @@ public class TypeControllerTest {
             "id[0]", equalTo(1),
             "type[0]", equalTo("chat"));
 
-    TypeDTO.builder().type("chien").build();
-    PetDTO maineCoon = PetDTO.builder()
-        .type(TypeDTO.builder().id(1).type("chat").build())
-        .number(12)
-        .price(499.99D)
-        .name("Maine Coon")
-        .build();
-
     given()
         .when()
         .contentType(ContentType.JSON)
-        .body(TypeDTO.builder().type("chien").build())
+        .body(Type.builder().type("chien").build())
         .post("/pet/type")
         .then()
         .statusCode(HttpStatus.OK.getCode())

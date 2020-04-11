@@ -9,7 +9,7 @@ jpa:
   default:
     entity-scan:
       packages:
-        - 'fr.micronaut.presentation.petcore.domains.entities'
+        - 'fr.micronaut.presentation.petcore.domains'
     properties:
       hibernate:
         hbm2ddl:

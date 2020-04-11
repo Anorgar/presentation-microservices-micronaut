@@ -1,5 +1,7 @@
-package fr.micronaut.presentation.common.exceptions;
+package fr.micronaut.presentation.common.handlers;
 
+import fr.micronaut.presentation.common.exceptions.ApiError;
+import fr.micronaut.presentation.common.exceptions.ApiException;
 import io.micronaut.http.HttpRequest;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.HttpStatus;

@@ -1,4 +1,4 @@
-package fr.micronaut.presentation.petcore.domains.dtos;
+package fr.micronaut.presentation.common.domains;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,12 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Getter
-public class PetDTO {
+public class Type {
 
   private Integer id;
-  private String name;
-  private Integer number;
-  private Double price;
-  private TypeDTO type;
+  private String type;
 
 }

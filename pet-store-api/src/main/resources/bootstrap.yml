@@ -1,0 +1,18 @@
+micronaut:
+  application:
+    name: pet-store-api
+  server:
+    port: 8080
+  config-client:
+    enabled: true
+  router:
+    static-resources:
+      swagger:
+        paths: classpath:META-INF/swagger
+        mapping: /swagger/**
+
+spring:
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8000

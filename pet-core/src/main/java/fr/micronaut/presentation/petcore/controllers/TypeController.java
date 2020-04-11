@@ -1,6 +1,6 @@
 package fr.micronaut.presentation.petcore.controllers;
 
-import fr.micronaut.presentation.petcore.domains.dtos.TypeDTO;
+import fr.micronaut.presentation.common.domains.Type;
 import fr.micronaut.presentation.petcore.services.TypeService;
 import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
@@ -16,12 +16,12 @@ public class TypeController {
   private TypeService service;
 
   @Get
-  public List<TypeDTO> findAll(){
+  public List<Type> findAll(){
     return service.findAll();
   }
 
   @Post
-  public TypeDTO save(@Body TypeDTO type){
+  public Type save(@Body Type type){
     return service.save(type);
   }
 

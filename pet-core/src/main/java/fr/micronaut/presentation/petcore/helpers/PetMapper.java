@@ -1,7 +1,7 @@
 package fr.micronaut.presentation.petcore.helpers;
 
-import fr.micronaut.presentation.petcore.domains.dtos.PetDTO;
-import fr.micronaut.presentation.petcore.domains.entities.Pet;
+import fr.micronaut.presentation.common.domains.Pet;
+import fr.micronaut.presentation.petcore.domains.PetEntity;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -9,14 +9,14 @@ public final class PetMapper {
 
   private PetMapper(){}
 
-  public static List<PetDTO> mapEntitiesToDTOs(List<Pet> pets){
+  public static List<Pet> mapEntitiesToDTOs(List<PetEntity> pets){
     return pets.stream()
         .map(PetMapper::mapEntityToDTO)
         .collect(Collectors.toList());
   }
 
-  public static PetDTO mapEntityToDTO(Pet pet){
-    return PetDTO.builder()
+  public static Pet mapEntityToDTO(PetEntity pet){
+    return Pet.builder()
         .id(pet.getId())
         .name(pet.getName())
         .number(pet.getNumber())
@@ -25,8 +25,8 @@ public final class PetMapper {
         .build();
   }
 
-  public static Pet mapDTOToEntity(PetDTO pet){
-    return Pet.builder()
+  public static PetEntity mapDTOToEntity(Pet pet){
+    return PetEntity.builder()
         .id(pet.getId())
         .name(pet.getName())
         .number(pet.getNumber())

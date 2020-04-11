@@ -3,8 +3,8 @@ package fr.micronaut.presentation.petcore.controllers;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-import fr.micronaut.presentation.petcore.domains.dtos.PetDTO;
-import fr.micronaut.presentation.petcore.domains.dtos.TypeDTO;
+import fr.micronaut.presentation.common.domains.Pet;
+import fr.micronaut.presentation.common.domains.Type;
 import io.micronaut.http.HttpStatus;
 import io.micronaut.runtime.server.EmbeddedServer;
 import io.micronaut.test.annotation.MicronautTest;
@@ -29,7 +29,7 @@ public class PetControllerTest {
   public void should_find_by_name(){
     given()
         .when()
-        .get("/pet/chat persan")
+        .get("/pets/chat persan")
         .then()
         .statusCode(HttpStatus.OK.getCode())
         .body("id", equalTo(1),
@@ -44,7 +44,7 @@ public class PetControllerTest {
   public void should_not_found_pet(){
     given()
         .when()
-        .get("/pet/caniche")
+        .get("/pets/caniche")
         .then()
         .statusCode(HttpStatus.NOT_FOUND.getCode())
         .body("message", equalTo("Pet caniche not found"),
@@ -55,7 +55,7 @@ public class PetControllerTest {
   public void should_save_and_find_all(){
     given()
         .when()
-        .get("/pet")
+        .get("/pets")
         .then()
         .statusCode(HttpStatus.OK.getCode())
         .body("id.size()", equalTo(1),
@@ -66,8 +66,8 @@ public class PetControllerTest {
             "price[0]", equalTo(255.99F),
             "name[0]", equalTo("chat persan"));
 
-    PetDTO maineCoon = PetDTO.builder()
-        .type(TypeDTO.builder().id(1).type("chat").build())
+    Pet maineCoon = Pet.builder()
+        .type(Type.builder().id(1).type("chat").build())
         .number(12)
         .price(499.99D)
         .name("Maine Coon")
@@ -77,7 +77,7 @@ public class PetControllerTest {
         .when()
         .contentType(ContentType.JSON)
         .body(maineCoon)
-        .post("/pet")
+        .post("/pets")
         .then()
         .statusCode(HttpStatus.OK.getCode())
         .body("id", equalTo(2),
@@ -89,7 +89,7 @@ public class PetControllerTest {
 
     given()
         .when()
-        .get("/pet")
+        .get("/pets")
         .then()
         .statusCode(HttpStatus.OK.getCode())
         .body("id.size()", equalTo(2),

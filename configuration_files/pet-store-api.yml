@@ -1,0 +1,3 @@
+client:
+  urls:
+    pet: http://localhost:8081

@@ -1,0 +1,3 @@
+rootProject.name = 'pet-store-api'
+include "common"
+project(":common").projectDir = file("../common")
