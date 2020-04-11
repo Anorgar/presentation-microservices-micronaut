@@ -20,7 +20,7 @@ public class PetService {
     return Try.of(() -> repository.findAll())
         .map(pets -> IteratorUtils.toList(pets.iterator()))
         .map(PetMapper::mapEntitiesToDTOs)
-        .getOrElseThrow(e -> new ApiException("Unable to retrieve pets", 500));
+        .getOrElseThrow(e -> new ApiException(e, "Unable to retrieve pets", 500));
   }
 
   public PetDTO findByName(String name){
@@ -28,6 +28,12 @@ public class PetService {
         .map(PetMapper::mapEntityToDTO)
         .orElseThrow(() -> new ApiException("Pet " + name + " not found", 404)))
         .getOrElseThrow(e -> new ApiException(e, "Unable to retrieve pet " + name, 500));
+  }
+
+  public PetDTO save(PetDTO pet){
+    return Try.of(() -> repository.save(PetMapper.mapDTOToEntity(pet)))
+        .map(PetMapper::mapEntityToDTO)
+        .getOrElseThrow(e -> new ApiException(e, "Unable to save pet", 500));
   }
 
 }

@@ -25,4 +25,14 @@ public final class PetMapper {
         .build();
   }
 
+  public static Pet mapDTOToEntity(PetDTO pet){
+    return Pet.builder()
+        .id(pet.getId())
+        .name(pet.getName())
+        .number(pet.getNumber())
+        .price(pet.getPrice())
+        .type(TypeMapper.mapDTOToEntity(pet.getType()))
+        .build();
+  }
+
 }

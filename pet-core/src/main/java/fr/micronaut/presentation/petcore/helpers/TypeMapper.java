@@ -22,4 +22,11 @@ public final class TypeMapper {
         .build();
   }
 
+  public static Type mapDTOToEntity(TypeDTO type) {
+    return Type.builder()
+        .id(type.getId())
+        .type(type.getType())
+        .build();
+  }
+
 }
