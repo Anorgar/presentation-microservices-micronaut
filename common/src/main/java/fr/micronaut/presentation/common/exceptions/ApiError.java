@@ -1,4 +1,4 @@
-package fr.micronaut.presentation.petcore.exceptions;
+package fr.micronaut.presentation.common.exceptions;
 
 import lombok.Builder;
 import lombok.Getter;

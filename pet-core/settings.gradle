@@ -1,2 +1,4 @@
 rootProject.name = 'pet-core'
+include "common"
+project(":common").projectDir = file("../common")
 

@@ -1,7 +1,7 @@
 package fr.micronaut.presentation.petcore.services;
 
+import fr.micronaut.presentation.common.exceptions.ApiException;
 import fr.micronaut.presentation.petcore.domains.dtos.TypeDTO;
-import fr.micronaut.presentation.petcore.exceptions.ApiException;
 import fr.micronaut.presentation.petcore.helpers.TypeMapper;
 import fr.micronaut.presentation.petcore.repositories.TypeRepository;
 import io.vavr.control.Try;

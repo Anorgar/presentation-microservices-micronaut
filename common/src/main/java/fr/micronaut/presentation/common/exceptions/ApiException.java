@@ -1,4 +1,4 @@
-package fr.micronaut.presentation.petcore.exceptions;
+package fr.micronaut.presentation.common.exceptions;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;

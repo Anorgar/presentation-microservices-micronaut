@@ -1,1 +1,11 @@
-name: microservices
+request:
+  log:
+    enable: true
+
+databases:
+  h2:
+    url: "jdbc:h2:mem:"
+    pet: pet-db
+    user-name: sa
+    password: ""
+    driver: org.h2.Driver

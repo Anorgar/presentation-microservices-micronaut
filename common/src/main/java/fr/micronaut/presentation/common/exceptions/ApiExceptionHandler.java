@@ -1,4 +1,4 @@
-package fr.micronaut.presentation.petcore.exceptions;
+package fr.micronaut.presentation.common.exceptions;
 
 import io.micronaut.http.HttpRequest;
 import io.micronaut.http.HttpResponse;
