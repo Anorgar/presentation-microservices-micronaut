@@ -1,22 +1,21 @@
-package fr.micronaut.presentation.common.domains;
+package fr.micronaut.presentation.petapi.domains;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Getter
-@Setter
-public class Pet {
+public class PetFlat {
 
   private Integer id;
   private String name;
   private Integer number;
   private Double price;
-  private Type type;
+  private Integer typeId;
+  private String type;
 
 }

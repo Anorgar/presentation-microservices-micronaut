@@ -1,10 +1,10 @@
 package fr.micronaut.presentation.petapi.clients;
 
 import fr.micronaut.presentation.common.domains.Pet;
+import fr.micronaut.presentation.common.domains.Type;
 import fr.micronaut.presentation.common.exceptions.ApiError;
 import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Get;
-import io.micronaut.http.annotation.PathVariable;
 import io.micronaut.http.annotation.Post;
 import io.micronaut.http.client.annotation.Client;
 import java.util.List;
@@ -13,10 +13,13 @@ import java.util.List;
 public interface PetClient {
 
   @Get("/pets")
-  List<Pet> findAll();
+  List<Pet> findAllPets();
 
-  @Get("/pets/{names}")
-  Pet findByName(@PathVariable String name);
+  @Get("/pet/type")
+  List<Type> findAllTypes();
+
+//  @Get("/pets/{names}")
+//  Pet findByName(@PathVariable("name") String name);
 
   @Post("/pets")
   Pet save(@Body Pet pet);
