@@ -35,7 +35,7 @@ public class PetControllerTest {
         .body("id", equalTo(1),
             "type.id", equalTo(1),
             "type.type", equalTo("chat"),
-            "number", equalTo(17),
+            "stock", equalTo(17),
             "price", equalTo(255.99F),
             "name", equalTo("chat persan"));
   }
@@ -62,13 +62,13 @@ public class PetControllerTest {
             "id[0]", equalTo(1),
             "type[0].id", equalTo(1),
             "type[0].type", equalTo("chat"),
-            "number[0]", equalTo(17),
+            "stock[0]", equalTo(17),
             "price[0]", equalTo(255.99F),
             "name[0]", equalTo("chat persan"));
 
     Pet maineCoon = Pet.builder()
         .type(Type.builder().id(1).type("chat").build())
-        .number(12)
+        .stock(12)
         .price(499.99D)
         .name("Maine Coon")
         .build();
@@ -83,7 +83,7 @@ public class PetControllerTest {
         .body("id", equalTo(2),
             "type.id", equalTo(1),
             "type.type", equalTo("chat"),
-            "number", equalTo(12),
+            "stock", equalTo(12),
             "price", equalTo(499.99F),
             "name", equalTo("Maine Coon"));
 
@@ -96,13 +96,13 @@ public class PetControllerTest {
             "id[0]", equalTo(1),
             "type[0].id", equalTo(1),
             "type[0].type", equalTo("chat"),
-            "number[0]", equalTo(17),
+            "stock[0]", equalTo(17),
             "price[0]", equalTo(255.99F),
             "name[0]", equalTo("chat persan"),
             "id[1]", equalTo(2),
             "type[1].id", equalTo(1),
             "type[1].type", equalTo("chat"),
-            "number[1]", equalTo(12),
+            "stock[1]", equalTo(12),
             "price[1]", equalTo(499.99F),
             "name[1]", equalTo("Maine Coon"));
   }

@@ -30,8 +30,8 @@ public class PetEntity {
   @Column(name = "name")
   private String name;
 
-  @Column(name = "number")
-  private Integer number;
+  @Column(name = "stock")
+  private Integer stock;
 
   @Column(name = "price")
   private Double price;

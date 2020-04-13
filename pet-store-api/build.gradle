@@ -32,8 +32,7 @@ dependencies {
 
     compile("io.micronaut:micronaut-views")
     compileOnly('org.projectlombok:lombok:1.18.8')
-    runtime 'org.thymeleaf:thymeleaf:3.0.11.RELEASE'
-//    runtime 'com.github.jknack:handlebars:4.1.0'
+    runtime("org.thymeleaf:thymeleaf:3.0.11.RELEASE")
     runtime("ch.qos.logback:logback-classic:1.2.3")
 
     testAnnotationProcessor("io.micronaut:micronaut-inject-java")

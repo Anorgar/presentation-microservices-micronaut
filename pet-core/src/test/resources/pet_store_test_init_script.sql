@@ -12,7 +12,7 @@ CREATE TABLE pet_type (
 CREATE TABLE pet (
   id smallint(6) NOT NULL auto_increment,
   type_id smallint(6),
-  number smallint(6),
+  stock smallint(6),
   price decimal(5,2),
   name varchar(255),
   PRIMARY KEY (id)
@@ -24,5 +24,5 @@ VALUES(1, 'chat');
 
 
 INSERT INTO pet
-(id, type_id, number, price, name)
+(id, type_id, stock, price, name)
 VALUES(1, 1, 17, 255.99, 'chat persan');

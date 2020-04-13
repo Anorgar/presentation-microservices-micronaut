@@ -15,7 +15,7 @@ public class Pet {
 
   private Integer id;
   private String name;
-  private Integer number;
+  private Integer stock;
   private Double price;
   private Type type;
 

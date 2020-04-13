@@ -11,7 +11,7 @@ public final class PetMapper {
   public static Pet mapPetFlatToPet(PetFlat pet){
     return Pet.builder()
         .name(pet.getName())
-        .number(pet.getNumber())
+        .stock(pet.getStock())
         .price(pet.getPrice())
         .type(Type.builder().id(pet.getTypeId()).type(pet.getType()).build())
         .build();

@@ -10,6 +10,10 @@ import io.micronaut.http.annotation.Produces;
 import io.micronaut.http.server.exceptions.ExceptionHandler;
 import javax.inject.Singleton;
 
+
+/**
+ * Catch every {@link ApiException} and convert them into a {@link HttpResponse<ApiError>}.
+ */
 @Produces
 @Singleton
 public class ApiExceptionHandler implements ExceptionHandler<ApiException, HttpResponse> {

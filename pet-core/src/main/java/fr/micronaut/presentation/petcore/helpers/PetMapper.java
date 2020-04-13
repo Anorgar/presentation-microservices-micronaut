@@ -19,7 +19,7 @@ public final class PetMapper {
     return Pet.builder()
         .id(pet.getId())
         .name(pet.getName())
-        .number(pet.getNumber())
+        .stock(pet.getStock())
         .price(pet.getPrice())
         .type(TypeMapper.mapEntityToDTO(pet.getType()))
         .build();
@@ -29,7 +29,7 @@ public final class PetMapper {
     return PetEntity.builder()
         .id(pet.getId())
         .name(pet.getName())
-        .number(pet.getNumber())
+        .stock(pet.getStock())
         .price(pet.getPrice())
         .type(TypeMapper.mapDTOToEntity(pet.getType()))
         .build();

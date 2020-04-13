@@ -12,6 +12,19 @@ import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
 import org.reactivestreams.Publisher;
 
+/**
+ * Catch every request and log the body.
+ * A blacklist {@link RequestLoggingFilter#EXCLUDE_PATTERN} is available to disable some log pollution.
+ * Require the <pre>
+ *   request:
+ *      log:
+ *         enable: true
+ * </pre>
+ * in the configuration to be active.
+ *
+ * The {@link RequestLoggingFilter#order} is here to make sure other tracing beans like Brave or
+ * Zipkin are executed before the logging.
+ */
 @Slf4j
 @Filter("/**")
 public class RequestLoggingFilter implements HttpServerFilter {

@@ -1,49 +1,41 @@
 package fr.micronaut.presentation.petapi.Controllers;
 
-import fr.micronaut.presentation.common.domains.Pet;
-import fr.micronaut.presentation.petapi.domains.PetFlat;
-import fr.micronaut.presentation.petapi.domains.PetModel;
+import fr.micronaut.presentation.common.domains.Type;
+import fr.micronaut.presentation.petapi.domains.TypeModel;
 import fr.micronaut.presentation.petapi.helper.ValidationExceptionMapper;
-import fr.micronaut.presentation.petapi.services.PetService;
+import fr.micronaut.presentation.petapi.services.TypeService;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Error;
 import io.micronaut.http.annotation.Get;
-import io.micronaut.http.annotation.PathVariable;
 import io.micronaut.http.annotation.Post;
 import io.micronaut.views.ModelAndView;
 import io.micronaut.views.View;
 import javax.inject.Inject;
 import javax.validation.ConstraintViolationException;
 
-@Controller("/pet")
-public class PetController {
+@Controller("/type")
+public class PetTypeController {
 
   @Inject
-  private PetService service;
+  private TypeService service;
 
-  @View("pet")
+  @View("type")
   @Get
-  public PetModel createPetModel(){
-    return service.createPetModel();
+  public TypeModel createTypeModel(){
+    return service.createTypeModel();
   }
 
-  @View("pet")
+  @View("type")
   @Post(consumes = MediaType.APPLICATION_FORM_URLENCODED)
-  public PetModel createPetModel(@Body PetFlat petToCreate){
-    return service.addPet(petToCreate);
-  }
-
-  @Get("/{name}")
-  public Pet findByName(@PathVariable("name") String name){
-    return service.findByName(name);
+  public TypeModel createTypeModel(@Body Type type){
+    return service.addType(type);
   }
 
   @Error(exception = ConstraintViolationException.class)
   public HttpResponse<ModelAndView> handleValidationError(ConstraintViolationException e){
     return ValidationExceptionMapper.handleValidationError(e);
   }
-
 }

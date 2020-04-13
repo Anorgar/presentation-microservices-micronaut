@@ -1,0 +1,7 @@
+micronaut:
+  application:
+    name: pet-store-api
+
+client:
+  urls:
+    pet: unused
