@@ -2,7 +2,7 @@
 Pet store in micronaut micro-services
 
 
-##Introduction
+## Introduction
 
 This is a micro-services project in micronaut for demonstration purpose.
 This project contain:
@@ -14,7 +14,7 @@ This project contain:
     <li>a code shared module: common</li>
 </ul>
 
-##Start project
+## Start project
 
 This project require java 8+ to run
 
